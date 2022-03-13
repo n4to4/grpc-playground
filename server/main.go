@@ -15,7 +15,10 @@ type server struct {
 	pb.UnimplementedInventoryServer
 }
 
-func (s *server) GetBookList(ctx context.Context, in *pb.GetBookListRequest) (*pb.GetBookListResponse, error) {
+func (s *server) GetBookList(
+	ctx context.Context,
+	in *pb.GetBookListRequest,
+) (*pb.GetBookListResponse, error) {
 	log.Printf("Received request: %v", in.ProtoReflect().Descriptor().FullName())
 	return &pb.GetBookListResponse{
 		Books: getSampleBooks(),
